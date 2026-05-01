@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharm-D Hub | Clinical Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-heart-pulse heartbeat-icon"></i>
+            <h2>PHARM-D HUB</h2>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</li>
+            <li class="nav-item" onclick="showSection('cardiac')"><i class="fa-solid fa-wave-square"></i> Cardiac Analysis</li>
+            <li class="nav-item" onclick="showSection('bmi')"><i class="fa-solid fa-weight-scale"></i> BMI Tool</li>
+            <li class="nav-item" onclick="showSection('dosage')"><i class="fa-solid fa-pills"></i> Drug Dose</li>
+            <li class="nav-item" onclick="showSection('bp')"><i class="fa-solid fa-stethoscope"></i> BP Evaluator</li>
+            <li class="nav-item" onclick="showSection('lab')"><i class="fa-solid fa-microscope"></i> Lab Data</li>
+        </ul>
+        <div class="sidebar-user-card">
+            <p>PharmD Resource</p>
+            <span>COMSATS University</span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="home" class="page active">
+            <div class="hero-banner">
+                <div class="hero-text">
+                    <span class="uni-badge">Lahore Campus</span>
+                    <h1>Clinical Analysis & <br><span class="highlight">Pharmacology Dashboard</span></h1>
+                    
+                    <div class="credits-box">
+                        <div class="credit-item">
+                            <span class="label">Developed by:</span>
+                            <span class="name">Muhammad Rizwan</span>
+                        </div>
+                        <div class="credit-item border">
+                            <span class="label">Supervised by:</span>
+                            <span class="name">Dr. Ihtisham Umar</span>
+                        </div>
+                    </div>
+
+                    <p class="hero-desc">An advanced medical computation engine for students. Precise, educational, and professionally audited.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="mailto:fa25-phm-072@cuilahore.edu.pk" class="btn-contact">
+                            <i class="fa-solid fa-envelope"></i> Contact Developer
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-header">
+                <h2>Our Clinical Services</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" onclick="showSection('cardiac')">
+                    <div class="s-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Cardiac Cycle</h3>
+                    <p>Dynamic analysis of ventricular and atrial phases based on real-time Heart Rate (BPM).</p>
+                </div>
+                <div class="service-card" onclick="showSection('bmi')">
+                    <div class="s-icon"><i class="fa-solid fa-weight-scale"></i></div>
+                    <h3>BMI Calculator</h3>
+                    <p>Categorize physical health status using height-weight metrics with medical grading.</p>
+                </div>
+                <div class="service-card" onclick="showSection('dosage')">
+                    <div class="s-icon"><i class="fa-solid fa-pills"></i></div>
+                    <h3>Dosage Calc</h3>
+                    <p>Safe range calculation (mg/kg) for drugs like Paracetamol and Ibuprofen.</p>
+                </div>
+                <div class="service-card" onclick="showSection('bp')">
+                    <div class="s-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                    <h3>BP Evaluator</h3>
+                    <p>Systolic and Diastolic reading classification into Hypertension stages.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tool-view" class="page tool-view"></section>
+
+    </main>
+
+    <button class="mobile-toggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
