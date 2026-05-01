@@ -1,0 +1,94 @@
+:root {
+    --medical-red: #b91c1c;
+    --navy: #0f172a;
+    --gold: #d4af37;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: var(--navy); display: flex; }
+
+/* Sidebar Design */
+.sidebar {
+    width: 280px; height: 100vh; background: var(--navy); color: white;
+    position: fixed; display: flex; flex-direction: column; transition: 0.4s; z-index: 1000;
+}
+
+.sidebar-header { padding: 40px 20px; text-align: center; background: #1e293b; }
+.heartbeat-icon { font-size: 3rem; color: var(--medical-red); animation: pulse 1.5s infinite; }
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.nav-links { list-style: none; padding: 20px 0; flex-grow: 1; }
+.nav-item { 
+    padding: 16px 30px; cursor: pointer; display: flex; align-items: center; gap: 15px; 
+    transition: 0.3s; color: #94a3b8; font-weight: 400;
+}
+.nav-item:hover, .nav-item.active { background: rgba(255,255,255,0.05); color: white; border-left: 5px solid var(--gold); }
+
+/* Main Content Area */
+.main-content { margin-left: 280px; width: 100%; padding: 0; }
+
+/* Hero Banner */
+.hero-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e293b 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
+    padding: 100px 60px; color: white; border-bottom: 8px solid var(--gold);
+}
+
+.uni-badge { background: var(--gold); color: var(--navy); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem; }
+h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-top: 20px; }
+.highlight { color: var(--gold); }
+
+.credits-box { 
+    margin: 30px 0; background: rgba(255,255,255,0.05); padding: 20px; 
+    border-radius: 12px; display: inline-flex; gap: 40px; border: 1px solid rgba(255,255,255,0.1);
+}
+.credit-item { display: flex; flex-direction: column; }
+.credit-item .label { font-size: 0.8rem; color: #94a3b8; }
+.credit-item .name { font-weight: 700; font-size: 1.1rem; color: var(--white); }
+.credit-item.border { border-left: 2px solid var(--gold); padding-left: 40px; }
+
+.btn-contact {
+    display: inline-flex; align-items: center; gap: 10px; background: var(--medical-red); 
+    color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px;
+    font-weight: 600; margin-top: 20px; transition: 0.3s;
+}
+.btn-contact:hover { background: #991b1b; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(185, 28, 28, 0.4); }
+
+/* Services Grid */
+.services-header { text-align: center; padding: 60px 0 20px; }
+.underline { width: 60px; height: 4px; background: var(--medical-red); margin: 10px auto; }
+
+.services-grid { 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; padding: 0 60px 60px; 
+}
+.service-card {
+    background: white; padding: 40px; border-radius: 20px; text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; cursor: pointer;
+    border-bottom: 4px solid transparent;
+}
+.service-card:hover { transform: translateY(-10px); border-bottom-color: var(--medical-red); }
+.s-icon { font-size: 2.5rem; color: var(--medical-red); margin-bottom: 20px; }
+
+/* Mobile View */
+@media (max-width: 992px) {
+    .sidebar { left: -100%; }
+    .sidebar.active { left: 0; }
+    .main-content { margin-left: 0; }
+    .hero-banner { padding: 80px 30px; text-align: center; }
+    .credits-box { flex-direction: column; gap: 20px; }
+    .credit-item.border { border-left: none; padding-left: 0; border-top: 1px solid #334155; padding-top: 20px; }
+    h1 { font-size: 2rem; }
+    .mobile-toggle { display: block; position: fixed; bottom: 20px; right: 20px; background: var(--medical-red); color: white; border: none; padding: 15px; border-radius: 50%; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+}
+
+.mobile-toggle { display: none; }
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.5s ease-in; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
