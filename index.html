@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmCalc Pro | Clinical Decision Support System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-heart-pulse heartbeat-icon"></i>
+            <h2>PHARMCALC PRO</h2>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</li>
+            <li class="nav-item" onclick="showSection('cardiac')"><i class="fa-solid fa-wave-square"></i> Cardiac Analysis</li>
+            <li class="nav-item" onclick="showSection('bmi')"><i class="fa-solid fa-weight-scale"></i> BMI Tool</li>
+            <li class="nav-item" onclick="showSection('dosage')"><i class="fa-solid fa-pills"></i> Drug Dose</li>
+            <li class="nav-item" onclick="showSection('bp')"><i class="fa-solid fa-stethoscope"></i> BP Evaluator</li>
+            <li class="nav-item" onclick="showSection('lab')"><i class="fa-solid fa-microscope"></i> Lab Data</li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="home" class="page active">
+            <div class="hero-banner">
+                <div class="hero-text">
+                    <h1>PharmCalc Pro: <br><span class="highlight">Clinical Support System</span></h1>
+                    
+                    <div class="credits-box">
+                        <div class="credit-item">
+                            <span class="label">Developed by:</span>
+                            <span class="name">Muhammad Rizwan</span>
+                        </div>
+                        <div class="credit-item border">
+                            <span class="label">Supervised by:</span>
+                            <span class="name">Dr. Ihtisham Umar</span>
+                        </div>
+                    </div>
+
+                    <p class="hero-desc">The ultimate digital toolkit for pharmacy students and healthcare professionals. Analyze, calculate, and evaluate clinical data with precision.</p>
+                    
+                    <div class="hero-actions">
+                        <button class="btn-explore" onclick="showSection('cardiac')">Launch Dashboard</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" onclick="showSection('cardiac')">
+                    <i class="fa-solid fa-heart-pulse s-icon"></i>
+                    <h3>Cardiac Cycle</h3>
+                    <p>In-depth analysis of cardiac phases based on heart rate.</p>
+                </div>
+                <div class="service-card" onclick="showSection('bmi')">
+                    <i class="fa-solid fa-weight-scale s-icon"></i>
+                    <h3>BMI Calculator</h3>
+                    <p>Calculate Body Mass Index and health categories.</p>
+                </div>
+                <div class="service-card" onclick="showSection('dosage')">
+                    <i class="fa-solid fa-pills s-icon"></i>
+                    <h3>Drug Dosage</h3>
+                    <p>Safe mg/kg calculations for pediatric & adult doses.</p>
+                </div>
+                <div class="service-card" onclick="showSection('bp')">
+                    <i class="fa-solid fa-stethoscope s-icon"></i>
+                    <h3>BP Evaluator</h3>
+                    <p>Classify BP readings into AHA clinical stages.</p>
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <p><strong>COMSATS University Islamabad, Lahore Campus</strong></p>
+                    <p><i class="fa-solid fa-envelope"></i> fa25-phm-072@cuilahore.edu.pk</p>
+                    <a href="mailto:fa25-phm-072@cuilahore.edu.pk" class="btn-contact-small">Send Feedback</a>
+                </div>
+            </footer>
+        </section>
+
+        <section id="tool-view" class="page"></section>
+    </main>
+
+    <button class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars-staggered"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
