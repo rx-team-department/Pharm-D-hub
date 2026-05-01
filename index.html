@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharm-D Hub | Clinical Resource</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-house-chimney-medical"></i>
+            <h3>PHARM-D HUB</h3>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</li>
+            <li class="nav-item" onclick="showSection('cardiac')"><i class="fa-solid fa-heart-pulse"></i> Cardiac Cycle</li>
+            <li class="nav-item" onclick="showSection('bmi')"><i class="fa-solid fa-weight-scale"></i> BMI Calculator</li>
+            <li class="nav-item" onclick="showSection('dosage')"><i class="fa-solid fa-pills"></i> Drug Dosage</li>
+            <li class="nav-item" onclick="showSection('converter')"><i class="fa-solid fa-repeat"></i> Unit Converter</li>
+            <li class="nav-item" onclick="showSection('bp')"><i class="fa-solid fa-stethoscope"></i> BP Evaluator</li>
+            <li class="nav-item" onclick="showSection('lab')"><i class="fa-solid fa-vial"></i> Lab Ranges</li>
+        </ul>
+        <div class="sidebar-footer">
+            <p><strong>Dev:</strong> Muhammad Rizwan</p>
+            <p><strong>Sup:</strong> Dr. Ihtisham Umar</p>
+        </div>
+    </nav>
+
+    <div class="main-container" onclick="closeSidebarOnContentClick()">
+        
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <div class="hero-badge">Official Academic Resource</div>
+                <h1>Welcome to Pharm-D Hub</h1>
+                <p>A specialized clinical dashboard designed for the Department of Pharmacy, COMSATS University Islamabad, Lahore Campus.</p>
+                
+                <div class="features-grid">
+                    <div class="feat-card"><i class="fa-solid fa-bolt"></i> <h4>Fast Analysis</h4></div>
+                    <div class="feat-card"><i class="fa-solid fa-microscope"></i> <h4>Lab Precision</h4></div>
+                    <div class="feat-card"><i class="fa-solid fa-shield-heart"></i> <h4>Medically Accurate</h4></div>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Contact & Credits</h3>
+                    <p><strong>Developer:</strong> fa25-phm-072@cuilahore.edu.pk</p>
+                    <p><strong>Department:</strong> Pharmacy (PharmD)</p>
+                    <button class="btn-main" onclick="showSection('cardiac')">Launch Tools <i class="fa-solid fa-rocket"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cardiac" class="tab-content">
+            <div class="card">
+                <h2><i class="fa-solid fa-heart-pulse"></i> Cardiac Cycle</h2>
+                <div class="input-box">
+                    <label>Heart Rate (BPM)</label>
+                    <input type="number" id="bpmInput" value="75" oninput="calculateCardiac()">
+                </div>
+                <div id="cardiac-result"></div>
+            </div>
+        </section>
+
+        <section id="bmi" class="tab-content">
+            <div class="card">
+                <h2><i class="fa-solid fa-weight-scale"></i> BMI Calculator</h2>
+                <div class="input-grid">
+                    <input type="number" id="bmiW" placeholder="Weight (kg)">
+                    <input type="number" id="bmiH" placeholder="Height (cm)">
+                </div>
+                <button class="btn-calc" onclick="runBMI()">Calculate BMI</button>
+                <div id="bmi-res" class="res-box"></div>
+            </div>
+        </section>
+
+        <section id="dosage" class="tab-content">
+            <div class="card">
+                <h2><i class="fa-solid fa-pills"></i> Dosage Calculator</h2>
+                <input type="number" id="doseW" placeholder="Patient Weight (kg)" class="full-input">
+                <button class="btn-calc" onclick="runDose()">Get Safe Range</button>
+                <div id="dose-res" class="dose-grid"></div>
+                <p class="note">* Educational purpose only.</p>
+            </div>
+        </section>
+
+        <section id="converter" class="tab-content">
+            <div class="card">
+                <h2><i class="fa-solid fa-repeat"></i> Unit Converter</h2>
+                <select id="convType" class="full-input">
+                    <option value="mg-g">Weight (mg ⇋ g)</option>
+                    <option value="ml-l">Volume (mL ⇋ L)</option>
+                    <option value="glc">Glucose (mmol/L ⇋ mg/dL)</option>
+                </select>
+                <input type="number" id="convVal" placeholder="Enter value" oninput="runConv()" class="full-input">
+                <div id="conv-res" class="res-box"></div>
+            </div>
+        </section>
+
+        <section id="bp" class="tab-content">
+            <div class="card">
+                <h2><i class="fa-solid fa-stethoscope"></i> BP Evaluator</h2>
+                <div class="input-grid">
+                    <input type="number" id="bpS" placeholder="Systolic">
+                    <input type="number" id="bpD" placeholder="Diastolic">
+                </div>
+                <button class="btn-calc" onclick="runBP()">Check Category</button>
+                <div id="bp-res" class="res-box"></div>
+            </div>
+        </section>
+
+        <section id="lab" class="tab-content">
+            <div class="card">
+                <h2><i class="fa-solid fa-vial"></i> Normal Lab Ranges</h2>
+                <div id="lab-table"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
